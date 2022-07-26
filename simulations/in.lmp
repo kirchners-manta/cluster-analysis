@@ -1,0 +1,61 @@
+# unit system
+units real
+
+# simulation parameters
+variable BOXSIZE equal 24.859 # <<< Enter box size here!
+
+# force field setup
+atom_style full
+bond_style harmonic
+angle_style harmonic
+dihedral_style none
+improper_style none
+pair_style lj/cut/coul/long 12.4
+kspace_style pppm 1.0e-5
+
+# system setup
+read_data spce.lammpsdata
+replicate 8 8 8
+velocity all create 298.15 13579 dist gaussian mom yes
+fix RIGID all shake 1.0e-5 100 0 b 1 a 1
+
+# time step
+timestep 1.0
+
+# neighbor list setup
+neighbor 2.0 bin
+neigh_modify delay 10 every 1 check yes
+
+# screen output
+thermo_style custom step temp density press pe ke etotal cpuremain
+thermo 100
+
+# melting and compression to final box size
+print ""
+print ">>> STARTING MELTING AND COMPRESSION TO FINAL BOX SIZE! <<<"
+print ""
+fix INTEGRATOR all nvt temp 298.15 298.15 100.0
+fix DEFORM all deform 5 x final 0.0 ${BOXSIZE} y final 0.0 ${BOXSIZE} z final 0.0 ${BOXSIZE} units box
+dump TRAJECTORY all custom 5 melting.lmp element xu yu zu
+dump_modify TRAJECTORY element H O sort id
+run 2000 # 2 ps run
+undump TRAJECTORY
+unfix DEFORM
+unfix INTEGRATOR
+
+# equilibration at final box size
+print ""
+print ">>> STARTING EQUILIBRATION AT TARGET BOX SIZE! <<<"
+print ""
+velocity all zero linear
+fix INTEGRATOR all nvt temp 298.15 298.15 100.0
+fix_modify INTEGRATOR energy yes
+run 100000 # 100 ps run
+
+# production
+print ""
+print ">>> STARTING PRODUCTION RUN! <<<"
+print ""
+dump TRAJECTORY all custom 100 production1ns.lmp element xu yu zu
+dump_modify TRAJECTORY element H O sort id
+run 1000000 # 1 ns run with low dump frequency

@@ -1,0 +1,60 @@
+! TRAVIS input file
+! Created with TRAVIS version compiled at Jan 13 2022 10:33:23
+! Source code version: Jan 07 2022
+! Input file written at Thu May  5 16:29:04 2022.
+! I have read and acknowledged these facts and will obey them (y/n). [no] 
+y
+! I have acknowledged this note (y/n). [no] 
+y
+! Use the advanced mode until the analysis selection menu (y/n)? [no] 
+
+! Use these values (y) or enter different values (n)? [yes] 
+
+! Update cell geometry in every time step (i.e., NPT ensemble) (y) or use fixed cell (n)? [yes] 
+
+! Create images of the structural formulas (y/n)? [no] 
+
+! Accept these molecules (y) or change something (n)? [yes] 
+
+! Which functions to compute (comma separated)?
+cla
+! Use the advanced mode for the main part (y/n)? [no] 
+
+! Which molecule type to use for cluster analysis (H2O=1)? 
+1
+! Which atoms to take into account from H2O (*=all)? [*] 
+
+! Add another molecule type to the cluster analysis (y/n)? [no] 
+
+! Use "CoM Trick" (y/n)? [no] 
+
+! Allow only selected cluster bonds (y) or all bonds (n)? [no] 
+
+! Use "ideal gas mode" (replace all coords by random numbers) (y/n)? [no] 
+
+! Enter max. distance for cluster analysis distribution (in pm): [2100] 
+1200
+! Enter resolution of the cluster distance distribution: [300] 
+1200
+! Write out temporal development of heterogeneity measures (y/n)? [no] 
+
+! Create 2D plots with temporal development (y/n)? [no] 
+
+! Create Cluster Distance Difference plot (y/n)? [no] 
+
+! Export cluster structures from cluster analysis (y/n)? [no] 
+
+! Create Cluster Diagram temporal animation (y/n)? [no] 
+
+! Perform Cluster Topology Analysis (y/n)? [no] 
+
+! Render POV-Ray trajectory of whole box indicating clusters (y/n)? [no] 
+
+! Use distance caching (y/n)? [yes] 
+
+! In which trajectory frame to start processing the trajectory? [1] 
+
+! How many trajectory frames to read (from this position on)? [all] 
+
+! Use every n-th read trajectory frame for the analysis: [1] 
+
