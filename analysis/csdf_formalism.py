@@ -63,7 +63,7 @@ csdf_from_cddf["  Percentage"] = (
 )
 
 # export the data frame to a csv file
-save_location = os.path.join(
-    os.path.realpath("./"), str(Path(csdf_file).parent) + "csdf_from_cddf.csv"
-)
+save_location = os.path.join(os.path.realpath("./"), "csdf_from_cddf.csv")
 csdf_from_cddf.to_csv(save_location, sep=";", index=False)
+
+print("CSDF from CDDF saved to:", save_location)
