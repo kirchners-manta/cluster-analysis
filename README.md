@@ -1,8 +1,7 @@
 # Cluster Analysis in Liquids
 ---
-[![DOI](https://doi.org/10.1021/acs.jcim.2c01244)](https://doi.org/10.1021/acs.jcim.2c01244)
 
-Collection of input files relevant to our paper on cluster analysis. 
+Collection of input files relevant to [our paper on cluster analysis](https://doi.org/10.1021/acs.jcim.2c01244). 
 
 * The directory [simulations](simulations/) contains input files for the molecular dynamics (MD) simulations of water (at the example of the 512 molecule system) performed with the [LAMMPS](http://lammps.sandia.gov/) program package.
 
